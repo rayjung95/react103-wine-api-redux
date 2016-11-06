@@ -25,7 +25,7 @@ In this version, the app will be a *Single Page Application* based on [React Rou
 
 You can try the app [here](http://bit.ly/react-wines-102)
 
-<img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/spa.gif' height='300' alt='The SPA Wine App'>
+<img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/spa.gif' height='500' alt='The SPA Wine App'>
 
 ## Technical requirements
 
