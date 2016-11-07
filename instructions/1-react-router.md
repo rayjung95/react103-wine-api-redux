@@ -51,6 +51,13 @@ const RoutedApp = React.createClass({
 });
 ```
 
+And render it into the DOM:
+
+```javascript
+ReactDOM.render(<RoutedApp />, document.getElementById('root'));
+```
+
+
 The `Router` is the top-level element of the router configuration hierarchy. It uses the [`browserHistory`](https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#browserhistory) strategy - based on HTML5 history API - to manipulate the browser URL.
 
 The first `Route` element is mapped on the `/` path and references a container component (`WineApp`) that will render the router's current page.
@@ -72,6 +79,11 @@ export const WineApp = React.createClass({
 ```
 
 The concrete routes of our SPA are defined as children of this top-level route. The `IndexRoute` is the default route for the `/` path and will render the `RegionsPage` component. The `WineListPage` component will render when the path is `regions/:regionId` and the `WinePage` component will render when the path is `regions/:regionId/wines/:wineId`.
+
+So :
+* when the URL is `/`, the router will render `<WineApp><RegionsPage /></WineApp>`
+* when the URL matches `/regions/:regionId`, the router will render `<WineApp><WineListPage /></WineApp>`
+* when the URL matches `/regions/:regionId/wines/:wineId`, the router will render `<WineApp><WinePage /></WineApp>`
 
 The `RegionsPage`, `WineListPage` and `WinePage` components do not exists yet. You can create basic versions of these components just to quickly test the router.
 
@@ -115,7 +127,7 @@ export const WinePage = React.createClass({
 });
 ```
 
-Finally we define a generic route for all the unmapped paths and render a `NotFound` component:
+Finally we define a generic route for all the unmapped paths and render a `NotFound` component in that case:
 
 ```javascript
 <Route path="*" component={NotFound} />
@@ -137,3 +149,8 @@ export const NotFound = React.createClass({
 ```javascript
 import { WineApp, RegionsPage, WineListPage, WinePage, NotFound } from './components';
 ```
+
+## What's next
+
+Now you're ready to create the real pages of the SPA.
+Go to the [next step](./2-reegions-page.md) to start writing the `RegionsPage` component.
