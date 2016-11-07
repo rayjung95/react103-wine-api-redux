@@ -11,7 +11,7 @@ In this workshop, we will split our app into three different pages :
 | ------------ | -------------- | ----------------- |
 | <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/screenshot-regions.png' alt='Regions page'> | <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/screenshot-wine-list.png' alt='Wine list page'> | <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/screenshot-wine-details.png' alt='Wine details page'> |
 
-Because we are in a frontend context (we are not here to learn the best backend MVC patterns ;-) ), we will create a **Single Page Application** (SPA) with **client-side routing**.
+Because we are in a frontend context (we are not here to learn the best backend MVC patterns :wink:), we will create a **Single Page Application** (SPA) with **client-side routing**.
 
 A Single Page Application is a web application with a unique web page (usually this is the `index.html`). With a SPA, you do not need to load a new page from the server each time an action is done by the user, so that the user experience is better.
 
@@ -97,7 +97,7 @@ ReactDOM.render(
 );
 ```
 
-But this simple approach has some weaknesses: the current navigation state is lost when the page is reloaded and the URL does not change in the browser when the current page changes (we could have used the `pushState` method of the HTML5 history API to do that, but we are lazy guys :-) ).
+But this simple approach has some weaknesses: the current navigation state is lost when the page is reloaded and the URL does not change in the browser when the current page changes (we could have used the `pushState` method of the HTML5 history API to do that, but we are lazy guys :simple_smile:).
 To avoid such problems, there are better solutions, such as [React Router](https://github.com/ReactTraining/react-router) that we will use to manage our Single Page Application.
 
 ## What's next
