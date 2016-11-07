@@ -124,9 +124,6 @@ npm start
 
 Then go to [http://localhost:3000](http://localhost:3000) to explore the documentation of the different routes available.
 
-### Common React Patterns
-
-We provide a list of common React patterns to help you during your journey through React and React Router [here](./instructions/patterns.md)
 
 ### Steps
 
