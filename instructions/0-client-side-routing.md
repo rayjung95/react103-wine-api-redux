@@ -20,11 +20,12 @@ So we need a way to manage the navigation through the different pages of our app
 ## Custom client-side Router with React
 
 A simple way to write a custom client-side router with React is to define a technical component to manage the navigation.
-This is a top-level component that uses its `state` to manage the current page and the navigation calls stack. It also provide an API that will be used by the different pages of the app.
+This is a top-level component that uses its `state` to manage the current page and the navigation calls stack. It also provide an API that will be used by the different pages of the app (the `navigateTo` function).
 
 We can define this component like that:
 
 ```javascript
+// Navigator is the custom client-side router
 const Navigator = React.createClass({
   propTypes: {
     initialRoute: React.PropTypes.shape({
@@ -35,9 +36,9 @@ const Navigator = React.createClass({
   },
   getInitialState() {
     return {
-      component: null,
-      title: null,
-      props: null,
+      component: null, // The component to render
+      title: null, // The title of the page
+      props: null, // The component props
     };
   },
   componentDidMount() {
@@ -62,12 +63,15 @@ const Navigator = React.createClass({
   }
 });
 
+// An example page...
 const Page2 = React.createClass({
   ...
 });
 
+// Another example page...
 const Page1 = React.createClass({
   gotoNext() {
+    // Use the router to navigate to Page2
     this.props.navigator.navigateTo({
       title: 'Page 2',
       component: Page2,
@@ -86,14 +90,15 @@ const Page1 = React.createClass({
   }
 });
 
+// Render the router into the DOM
 ReactDOM.render(
   <Navigator initialRoute= {{ title: 'Page 1', component: Page1 }} />,
   document.getElementById('main')
 );
 ```
 
-But this simple approach has some weaknesses, such as losing the current navigation state when the page is reloaded.
-To avoid this kind of problem, there are better solutions. [React Router](https://github.com/ReactTraining/react-router) is one of these solution and we will use it to manage our Single Page Application.
+But this simple approach has some weaknesses: the current navigation state is lost when the page is reloaded and the URL does not change in the browser when the current page changes (we could have used the `pushState` method of the HTML5 history API to do that, but we are lazy guys :-) ).
+To avoid such problems, there are better solutions, such as [React Router](https://github.com/ReactTraining/react-router) that we will use to manage our Single Page Application.
 
 ## What's next
 
