@@ -153,4 +153,4 @@ import { WineApp, RegionsPage, WineListPage, WinePage, NotFound } from './compon
 ## What's next
 
 Now you're ready to create the real pages of the SPA.
-Go to the [next step](./2-reegions-page.md) to start writing the `RegionsPage` component.
+Go to the [next step](./2-regions-page.md) to start writing the `RegionsPage` component.

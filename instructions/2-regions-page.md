@@ -1,5 +1,7 @@
 # Regions page
 
+<img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/wireframe-regions.png' alt='Regions page'>
+
 ## Create links
 
 enfin vous pouvez créer des liens en utilisant l'API
