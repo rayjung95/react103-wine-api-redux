@@ -1,44 +1,72 @@
 # Regions page
 
+Let's start from the simple code of the `RegionsPage` component created previously:
+
+```javascript
+export const RegionsPage = React.createClass({
+  render() {
+    return (
+      <div>Regions</div>
+    );
+  }
+});
+```
+
+What we have to do is to enhance this code to fetch data from the API and manage clics on the regions to navigate to the `WineList` page.
+
+`RegionsPage` is a *Smart Component*, it will use its state to store data and will render the `Regions` component with theses data. You do not have to modify the `Regions` component, it must always be a *Dumb Component*.
+
 <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/wireframe-regions.png' alt='Regions page'>
 
-## Create links
 
-enfin vous pouvez créer des liens en utilisant l'API
-
-```javascript
-import { Link } from 'react-router';
-
-...
-
-<Link to="/mon/path/1234">Chose 1234</Link>
-```
-
-de `react-router` ou en utilisant directement l'API `history`disponible à travers le contexte `react`.
-
-Pour celà, il est nécessaire de spécifier sur le composant routé, un `contextType` afin de valider le contenu du contexte
+## Fetch the data
 
 ```javascript
-export const Page = React.createClass({
-
+export const RegionsPage = React.createClass({
   contextTypes: {
-    router: React.PropTypes.object
+    router: PropTypes.object
   },
-
-  handleNavigationTo(path) {
-    // ici on déclenche la navigation vers l'url /view/${path}/details
-    this.context.router.push({
-      pathname: `/view/${path}/details`
+  getInitialState() {
+    return {
+      loading: false,
+      regions: [],
+    };
+  },
+  componentDidMount() {
+    this.setState({ loading: true }, () => {
+      WinesService.fetchRegions().then(regions => {
+        this.setState({
+          loading: false,
+          regions,
+        });
+      });
     });
   },
-
+  onSelectRegion(region) {
+    const root = window.location.hostname === 'react-bootcamp.github.io'
+      ? '/react-wines-102/'
+      : '/';
+    this.context.router.push({
+      pathname: `${root}regions/${region}`
+    });
+  },
   render() {
-    ...
+    if (this.state.loading) {
+      return <div className="center-align"><Loader /></div>
+    }
+    return (
+      <Regions
+        onSelectRegion={this.onSelectRegion}
+        regions={this.state.regions}
+        region={{}} />
+    );
   }
-}
+});
 ```
+
+## Manage navigation
 
 ## What's next
 
-Now you're ready to create the real pages of the SPA.
-Go to the [next step](./2-reegions-page.md) to start writing the `RegionsPage` component.
+Now you're ready to create the other pages of the SPA.
+Go to the [next step](./3-wine-list-page.md) to create the `WineListPage` component.
