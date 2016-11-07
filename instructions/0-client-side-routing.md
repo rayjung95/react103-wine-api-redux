@@ -97,7 +97,7 @@ ReactDOM.render(
 );
 ```
 
-But this simple approach has some weaknesses: the current navigation state is lost when the page is reloaded and the URL does not change in the browser when the current page changes (we could have used the `pushState` method of the HTML5 history API to do that, but we are lazy guys :simple_smile:).
+But this simple approach has some weaknesses: the current navigation state is lost when the page is reloaded and the URL does not change in the browser when the current page changes (we could have used the `pushState` method of the HTML5 history API to do that, but we are lazy guys :smile:).
 To avoid such problems, there are better solutions, such as [React Router](https://github.com/ReactTraining/react-router) that we will use to manage our Single Page Application.
 
 ## What's next
