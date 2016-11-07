@@ -12,26 +12,43 @@ export const RegionsPage = React.createClass({
 });
 ```
 
-What we have to do is to enhance this code to fetch data from the API and manage clics on the regions to navigate to the `WineList` page.
+What we have to do is to enhance this code to:
+* fetch data from the API,
+* manage clics on the regions to navigate to the `WineList` page.
 
 `RegionsPage` is a *Smart Component*, it will use its state to store data and will render the `Regions` component with theses data. You do not have to modify the `Regions` component, it must always be a *Dumb Component*.
+
+The component tree looks like:
 
 <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/wireframe-regions.png' alt='Regions page'>
 
 
 ## Fetch the data
 
+The state of the `Regions` components has two attributes:
+* the list of the wine regions,
+* a flag that indicates if the regions are loaded or not.
+
+First create the initial state of the component:
+
 ```javascript
 export const RegionsPage = React.createClass({
-  contextTypes: {
-    router: PropTypes.object
-  },
+  // ...
   getInitialState() {
     return {
       loading: false,
       regions: [],
     };
   },
+  // ...
+});
+```
+
+Then fetch the wine regions by using the API in the `componentDidMount()` lifecycle method:
+
+```javascript
+export const RegionsPage = React.createClass({
+  // ...
   componentDidMount() {
     this.setState({ loading: true }, () => {
       WinesService.fetchRegions().then(regions => {
@@ -42,14 +59,43 @@ export const RegionsPage = React.createClass({
       });
     });
   },
+  // ...
+});
+```
+
+And finally render the `Regions` component using the state:
+
+```javascript
+export const RegionsPage = React.createClass({
+  // ...
+  render() {
+    if (this.state.loading) {
+      return <div className="center-align"><Loader /></div>
+    }
+    return (
+      <Regions
+        regions={this.state.regions}
+        region={{}} />
+    );
+  }
+});
+```
+
+## Manage navigation
+
+Now the last thing to do is to manage the clic event on a wine region.
+
+Define the `onSelectRegion()` callback and use it in the `Regions` component. The callback uses the [`push()`](https://github.com/ReactTraining/react-router/blob/master/docs/API.md#pushpathorloc) method of the router to navigate to the wine list page.
+
+```javascript
+export const RegionsPage = React.createClass({
+  // ...
   onSelectRegion(region) {
-    const root = window.location.hostname === 'react-bootcamp.github.io'
-      ? '/react-wines-102/'
-      : '/';
     this.context.router.push({
-      pathname: `${root}regions/${region}`
+      pathname: `/regions/${region}`
     });
   },
+
   render() {
     if (this.state.loading) {
       return <div className="center-align"><Loader /></div>
@@ -63,8 +109,6 @@ export const RegionsPage = React.createClass({
   }
 });
 ```
-
-## Manage navigation
 
 ## What's next
 
