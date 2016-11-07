@@ -14,7 +14,7 @@ export const RegionsPage = React.createClass({
 
 What we have to do is to enhance this code to:
 * fetch data from the API,
-* manage clics on the regions to navigate to the `WineList` page.
+* manage clics on the regions to navigate to the wine list page.
 
 `RegionsPage` is a *Smart Component*, it will use its state to store data and will render the `Regions` component with theses data. You do not have to modify the `Regions` component, it must always be a *Dumb Component*.
 
