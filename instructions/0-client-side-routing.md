@@ -11,7 +11,7 @@ In this workshop, we will split our app into three different pages :
 
 | Regions Page | Wine list page | Wine details page |
 | ------------ | -------------- | ----------------- |
-| <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/screenshot-regions.png' height='500' alt='Regions page'> | <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/screenshot-wine-list.png' height='500' alt='Wine list page'> | <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/screenshot-wine-details.png' height='500' alt='Wine details page'> |
+| <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/screenshot-regions.png' alt='Regions page'> | <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/screenshot-wine-list.png' alt='Wine list page'> | <img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/screenshot-wine-details.png' alt='Wine details page'> |
 
 Because we are in a frontend context (we are not here to learn the best backend MVC patterns ;-) ), we will create a **Single Page Application** with **client-side routing**.
 
