@@ -7,21 +7,24 @@ We can add buttons to go Back (previous page) and to go Home. This is quite simp
 Add the buttons and the corresponding callbacks in the `WineApp` container:
 
 ```javascript
-export const WineApp = React.createClass({
-  goBack(e) {
+export class WineApp  extends Component {
+
+  goBack = (e) => {
     e.preventDefault();
     this.context.router.goBack();
-  },
-  goHome(e) {
+  };
+
+  goHome = (e) => {
     e.preventDefault();
     this.context.router.push({
       pathname: "/"
     });
-  },
+  };
+
   render() {
     // Create a flag to hide buttons on the home page.
     const displayButton = window.location.pathname !== '/';
-    
+
     return (
       <div className="container">
         <h1 className="center-align">Open Wine Database</h1>
@@ -44,5 +47,5 @@ export const WineApp = React.createClass({
       </div>
     );
   }
-});
+}
 ```

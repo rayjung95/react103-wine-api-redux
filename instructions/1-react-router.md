@@ -9,13 +9,13 @@ Two ways to install it:
 * Add the dependency directly into the `package.json` file:
 ```json
 "dependencies": {
-    "react-router": "3.0.0",
+    "react-router": "3.0.5",
 }
 ```
 
 * Add the dependency using the command line:
 ```
-npm install --save react-router@3.0.0
+npm install --save react-router@3.0.5
 ```
 
 ## Key concepts
@@ -35,7 +35,7 @@ import { Router, IndexRoute, Route, browserHistory } from 'react-router'
 Then create the router:
 
 ```javascript
-const RoutedApp = React.createClass({
+class RoutedApp extends Component {
   render() {
     return (
       <Router history={browserHistory}>
@@ -48,7 +48,7 @@ const RoutedApp = React.createClass({
       </Router>
     );
   }
-});
+}
 ```
 
 And render it into the DOM:
@@ -64,7 +64,7 @@ The first `Route` element is mapped on the `/` path and references a container c
 This is the entry point of our app and it must look like this:
 
 ```javascript
-export const WineApp = React.createClass({
+export class WineApp extends Component {
   render() {
     return (
       <div className="container">
@@ -75,7 +75,7 @@ export const WineApp = React.createClass({
       </div>
     );
   }
-})
+}
 ```
 
 The concrete routes of our SPA are defined as children of this top-level route. The `IndexRoute` is the default route for the `/` path and will render the `RegionsPage` component. The `WineListPage` component will render when the path is `regions/:regionId` and the `WinePage` component will render when the path is `regions/:regionId/wines/:wineId`.
@@ -92,31 +92,31 @@ The right place to create the `RegionsPage` is into the `Region.js` file, next t
 A simple version of the `RegionsPage` component is:
 
 ```javascript
-export const RegionsPage = React.createClass({
+export class RegionsPage extends Component {
   render() {
     return (
       <div>Regions</div>
     );
   }
-});
+}
 ```
 
 For the two other components, the path parameter values are available via the component props. So a simple version of the `WineListPage` component is:
 
 ```javascript
-export const WineListPage = React.createClass({
+export class WineListPage extends Component {
   render() {
     return (
       <div>Wines</div>
       <p>Region identifier is {this.props.params.regionId}</p>
     );
   }
-});
+}
 ```
 
 Do the same for the `WinePage` component:
 ```javascript
-export const WinePage = React.createClass({
+export class WinePage extends Component {
   render() {
     return (
       <div>Wine details</div>
@@ -124,7 +124,7 @@ export const WinePage = React.createClass({
       <p>Wine identifier is {this.props.params.wineId}</p>
     );
   }
-});
+}
 ```
 
 Finally we define a generic route for all the unmapped paths and render a `NotFound` component in that case:
@@ -136,13 +136,13 @@ Finally we define a generic route for all the unmapped paths and render a `NotFo
 The `NotFound` component is a very very complicated one :wink:
 
 ```javascript
-export const NotFound = React.createClass({
+export class NotFound extends Component {
   render() {
     return (
       <h1>Not Found !!!!</h1>
     );
   }
-});
+}
 ```
 
 *Tip: do not forget to import all these new components:*

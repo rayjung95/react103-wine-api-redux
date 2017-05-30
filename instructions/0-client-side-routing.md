@@ -26,31 +26,33 @@ We can define this component like that:
 
 ```javascript
 // Navigator is the custom client-side router
-const Navigator = React.createClass({
-  propTypes: {
+class Navigator extends Component {
+  static propTypes = {
     initialRoute: React.PropTypes.shape({
       component: React.PropTypes.func.isRequired,
       title: React.PropTypes.string,
       props: React.PropTypes.object,
     }).isRequired,
-  },
-  getInitialState() {
-    return {
-      component: null, // The component to render
-      title: null, // The title of the page
-      props: null, // The component props
-    };
-  },
+  };
+
+  state = {
+    component: null, // The component to render
+    title: null, // The title of the page
+    props: null, // The component props
+  };
+
   componentDidMount() {
     this.setState({
       component: this.props.initialRoute.component,
       title: this.props.initialRoute.title,
       props: this.props.initialRoute.props,
     });
-  },
-  navigateTo({ component, title, props }) {
+  }
+
+  navigateTo = ({ component, title, props }) => {
     this.setState({ component, title, props });
-  },
+  };
+
   render() {
     const Component = this.state.component;
     const { title, props } = this.state;
@@ -61,16 +63,17 @@ const Navigator = React.createClass({
         navigator={{ navigateTo: this.navigateTo }} />
     );
   }
-});
+}
 
 // An example page...
-const Page2 = React.createClass({
+class Page2  extends Component {
   ...
 });
 
 // Another example page...
-const Page1 = React.createClass({
-  gotoNext() {
+class Page1 =  extends Component {
+
+  gotoNext = () => {
     // Use the router to navigate to Page2
     this.props.navigator.navigateTo({
       title: 'Page 2',
@@ -79,7 +82,8 @@ const Page1 = React.createClass({
         foo: 'bar',
       },
     });
-  },
+  };
+
   render() {
     return (
       <div>
@@ -88,7 +92,7 @@ const Page1 = React.createClass({
       </div>
     );
   }
-});
+}
 
 // Render the router into the DOM
 ReactDOM.render(
