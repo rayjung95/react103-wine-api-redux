@@ -15,7 +15,7 @@ Two ways to install it:
 
 * Add the dependency using the command line:
 ```
-npm install --save react-router@3.0.5
+yarn add react-router -E
 ```
 
 ## Key concepts
