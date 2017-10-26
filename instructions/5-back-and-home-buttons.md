@@ -11,12 +11,12 @@ export class WineApp  extends Component {
 
   goBack = (e) => {
     e.preventDefault();
-    this.context.router.goBack();
+    this.props.router.goBack();
   };
 
   goHome = (e) => {
     e.preventDefault();
-    this.context.router.push({
+    this.props.router.push({
       pathname: "/"
     });
   };
