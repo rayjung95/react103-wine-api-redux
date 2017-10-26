@@ -89,7 +89,7 @@ Define the `onSelectRegion()` callback and use it in the `Regions` component. Th
 export class RegionsPage  extends Component {
   // ...
   onSelectRegion = (region) => {
-    this.context.router.push({
+    this.props.router.push({
       pathname: `/regions/${region}`
     });
   };
