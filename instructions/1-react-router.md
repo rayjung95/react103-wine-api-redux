@@ -106,10 +106,10 @@ For the two other components, the path parameter values are available via the co
 ```javascript
 export class WineListPage extends Component {
   render() {
-    return (
-      <div>Wines</div>
+    return [
+      <div>Wines</div>,
       <p>Region identifier is {this.props.params.regionId}</p>
-    );
+    ];
   }
 }
 ```
@@ -118,11 +118,11 @@ Do the same for the `WinePage` component:
 ```javascript
 export class WinePage extends Component {
   render() {
-    return (
-      <div>Wine details</div>
-      <p>Region identifier is {this.props.params.regionId}</p>
+    return [
+      <div>Wine details</div>,
+      <p>Region identifier is {this.props.params.regionId}</p>,
       <p>Wine identifier is {this.props.params.wineId}</p>
-    );
+    ];
   }
 }
 ```
