@@ -6,15 +6,16 @@ export class Wine extends Component {
     if (!this.props.wine) {
       return null;
     }
+    const url = `https://wines-api.herokuapp.com/api/wines/${this.props.wine.id}/image`
     return (
-      <div className="col s12 m12 l6">
+      <div className="col s12 m12 l6 offset-l3">
         <h2 className="center-align">Wine details</h2>
         <div className="card horizontal">
           <div className="card-image">
             <img
               className="responsive-img wine-detail-image"
               alt="Wine bottle pic"
-              src={`${this.props.host}/api/wines/${this.props.wine.id}/image`}
+              src={url}
             />
           </div>
           <div className="card-stacked">
