@@ -1,16 +1,18 @@
-# React 102
+# React 103
 
-React 102 is a workshop for those that want to learn React.js and its ecosystem, step by step.
+React 103 is a workshop for those that want to learn React.js and its ecosystem, step by step.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 
-<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">react-102</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/react-bootcamp/react-102" property="cc:attributionName" rel="cc:attributionURL">Mathieu ANCELIN and Sébastien PRUNIER</a> is distributed under the terms of the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons - Attribution - NonCommercial - ShareAlike</a>.
+<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">react-103</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/react-bootcamp/react-103" property="cc:attributionName" rel="cc:attributionURL">Mathieu ANCELIN and Sébastien PRUNIER</a> is distributed under the terms of the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons - Attribution - NonCommercial - ShareAlike</a>.
 
-## The Single Page Application version of the "Open Wine Database" app with React Router
+## The "Open Wine Database" app with Redux
 
 During the workshop you will create a webapp to manage your favorite wines* !
 
-The source code is based on the previous version of the app described in [react-101](https://github.com/react-bootcamp/react-101).
+The source code is based on the previous version of the app described in [react-102](http://bit.ly/rb-102).
+
+In this version, the app will make heavy usage of [Redux](http://redux.js.org/index.html)
 
 The main features of the app are
 
@@ -21,11 +23,9 @@ The main features of the app are
 
 \* *Alcohol abuse is dangerous for health, consume with moderation ;-)*
 
-In this version, the app will be a *Single Page Application* based on [React Router](https://github.com/ReactTraining/react-router).
+You can try the app [here](http://bit.ly/rbw-103)
 
-You can try the app [here](http://bit.ly/rbw-102)
-
-<img src='https://github.com/react-bootcamp/react-102/raw/master/instructions/img/spa.gif' height='500' alt='The SPA Wine App'>
+<img src='https://github.com/react-bootcamp/react-103/raw/master/instructions/img/wine-app.png' width='800' alt='The Wine App'>
 
 ## Technical requirements
 
@@ -94,19 +94,19 @@ In order to have specific tools to react in your web browser, install **React De
 
 ## Install dependencies
 
-If you want to pre-install the dependencies of the project to avoid any network issue, first clone the `react-102` repo then run the `npm install` command
+If you want to pre-install the dependencies of the project to avoid any network issue, first clone the `react-103` repo then run the `npm install` command
 
 ```sh
-git clone https://github.com/react-bootcamp/react-102 react-102
-cd react-102
+git clone https://github.com/react-bootcamp/react-103 react-103
+cd react-103
 npm install
 ```
 
 or if you want to use `yarn` instead run
 
 ```sh
-git clone https://github.com/react-bootcamp/react-102 react-102
-cd react-102
+git clone https://github.com/react-bootcamp/react-103 react-103
+cd react-103
 yarn install
 ```
 
@@ -121,17 +121,22 @@ If you don't want to/can't use the online version of the API, and want to run it
 ```sh
 git clone https://github.com/react-bootcamp/wines-api.git wines-api
 cd wines-api
-yarn install
-yarn start
+npm install
+npm start
 ```
 
 Then go to [http://localhost:3000](http://localhost:3000) to explore the documentation of the different routes available.
 
+### Common React Patterns
+
+We provide a list of commen React pattern to help you during your journey through React and Redux [here](./instructions/patterns.md)
 
 ### Steps
 
-* [Step 0 : client-side routing](./instructions/0-client-side-routing.md)
-* [Step 1 : react-router](./instructions/1-react-router.md)
-* [Step 2 : regions page](./instructions/2-regions-page.md)
-* [Step 3 : wine list page](./instructions/3-wine-list-page.md)
-* [Step 4 : wine details page](./instructions/4-wine-details-page.md)
+* [Step 0 : redux](./instructions/0-redux.md)
+* [Step 1 : react-redux](./instructions/1-react-redux.md)
+* [Step 2 : redux-thunk](./instructions/2-redux-thunk.md)
+* [Step 3 : include redux in the app](./instructions/3-include-redux.md)
+* [Step 4 : use redux for regions](./instructions/4-redux-regions.md)
+* [Step 5 : use redux for wines](./instructions/5-redux-wines.md)
+* [Step 6 : use redux for wine details](./instructions/6-redux-wine-details.md)

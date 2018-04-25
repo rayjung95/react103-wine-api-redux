@@ -1,30 +1,18 @@
 import React,{Component} from 'react'
 import {Loader, Wine, Header} from '.'
 import * as WinesService from '../services/Wines';
+import { fetchWine } from '../actions/actions'
+import { connect } from 'react-redux'
 
-
-export class WinePage extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            loading: false,
-            wine: null,
-          }
-    }
+class _WinePage extends Component {
 
     componentDidMount() {
-        this.setState({ loading: true }, () => {
-            WinesService.fetchWine(this.props.match.params.wineId).then(wine => {
-                this.setState({
-                loading: false,
-                wine,
-                });
-            });
-        });
+        this.props.fetchWine(this.props.match.params.wineId)
     }
 
     render() {
-        if (this.state.loading) {
+        console.log(this.props)
+        if (this.props.loading === 'HTTP_LOADING') {
             return <div className="center-align"><Loader /></div>
           }
       return (
@@ -36,7 +24,7 @@ export class WinePage extends Component {
 
                 <div className="row">
                 <Wine
-                wine={this.state.wine}
+                wine={this.props.wine}
                 />
                 </div>
             </div>
@@ -44,3 +32,12 @@ export class WinePage extends Component {
       );
     }
   }
+
+  export const mapFromStoreToProps = (store) => {
+    return {
+        wine: store.wine,
+        loading: store.loading === 'HTTP_LOADING'
+    }
+  }
+
+  export const WinePage = connect(mapFromStoreToProps,{fetchWine})(_WinePage)

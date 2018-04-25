@@ -4,6 +4,7 @@ import { RegionsPage, Header} from '.';
 
 export class WineApp extends Component {
   render() {
+    console.log("From WineApp",this.props)
     return (
       <div className="container">
 

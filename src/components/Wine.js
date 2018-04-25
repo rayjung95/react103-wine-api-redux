@@ -3,7 +3,7 @@ import { LikeButton, CommentButton, CommentList } from '.';
 
 export class Wine extends Component {
   render() {
-    if (!this.props.wine) {
+    if (!this.props.wine.id) {
       return null;
     }
     const url = `https://wines-api.herokuapp.com/api/wines/${this.props.wine.id}/image`
